@@ -76,10 +76,10 @@ class UEX(object):
 
     def track_object(self, start_date, interval, duration, track_callback):
         """
-            `start_date` datetime to start tracking from
-            `interval` give new tracking data every # of seconds
-            `duration` track for how long in seconds
-            `track_callback` passes result of get_data(date) to function
+        `start_date` datetime to start tracking from
+        `interval` give new tracking data every # of seconds
+        `duration` track for how long in seconds
+        `track_callback` passes result of get_data(date) to function
         """
 
         start_time = start_date
