@@ -1,0 +1,15 @@
+argparse==1.2.1
+astropy==1.0.4
+de421==2008.1
+docutils==0.12
+ephem==3.7.6.0
+jplephem==2.3
+lockfile==0.10.2
+numpy==1.9.3
+pyserial==2.7
+python-daemon==2.0.6
+sgp4==1.4
+skyfield==0.4
+wsgiref==0.1.2
+xlrd==0.9.4
+xlwt==1.0.0

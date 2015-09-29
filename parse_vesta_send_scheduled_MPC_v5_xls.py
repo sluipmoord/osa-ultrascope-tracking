@@ -7,6 +7,7 @@ import time
 import re
 import xlrd
 import ephem
+import fileinput
 
 from datetime import datetime as dt
 
@@ -156,7 +157,7 @@ def main():
 
     # get data to build task queue
     # filePath = 'Vesta-position-data.xls'
-    positions = xlrd.open_workbook('Vesta-Position-Data-MPC_V5.xls',
+    positions = xlrd.open_workbook('Vesta-Position-Data-MPC_v5.xls',
                                    on_demand=True)
 
     sheet = positions.sheet_by_name('Sheet1')
@@ -200,7 +201,7 @@ def main():
         print '___________________________________________________'
         print 'time now is ' + now_str()
         print 'target-time is ' + str(time_values)
-        print 'passed target time' + str(first_time)
+        print 'passed target time ' + str(first_time)
         print str(first_time)
         # time, priority, callable, *args
 
@@ -218,7 +219,9 @@ def main():
 
     scheduler.run()
 
+
 if __name__ == '__main__':
+
     if "-f" in sys.argv:
         main()
     else:
