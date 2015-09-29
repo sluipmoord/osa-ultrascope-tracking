@@ -85,7 +85,6 @@ class UEX(object):
         end_time = start_time + datetime.timedelta(seconds=duration)
 
         while start_time <= end_time:
-            print start_time
             data = self.get_data(start_time)
             if track_callback:
                 track_callback(data)
