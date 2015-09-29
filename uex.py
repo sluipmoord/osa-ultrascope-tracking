@@ -70,7 +70,8 @@ class UEX(object):
         return {
             "ascension": ascension,
             "declination": declination,
-            "object_location": object_location
+            "object_location": object_location,
+            "date": date
         }
 
     def track_object(self, start_date, interval, duration, track_callback):

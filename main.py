@@ -15,6 +15,7 @@ def main():
 
 
 def send2Arduino(data):
+    print data
     az = data['object_location'][0]
     alt = data['object_location'][1]
 
