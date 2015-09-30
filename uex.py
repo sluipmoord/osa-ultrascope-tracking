@@ -71,19 +71,24 @@ class UEX(object):
             "ascension": ascension,
             "declination": declination,
             "object_location": object_location,
-            "date": date
+            "matched_date": datetime.datetime.fromtimestamp(ts),
+            "input_date": date
         }
 
-    def track_object(self, start_date, interval, duration, track_callback):
+    def track_object(self, start_date, interval, duration,
+                     track_callback=None, sleep_time=None):
         """
         `start_date` datetime to start tracking from
         `interval` give new tracking data every # of seconds
         `duration` track for how long in seconds
         `track_callback` passes result of get_data(date) to function
+        `sleep_time` time to wait before running again, defaults to interval
         """
 
         start_time = start_date
         end_time = start_time + datetime.timedelta(seconds=duration)
+        if sleep_time is None:
+            sleep_time = interval
 
         while start_time <= end_time:
             data = self.get_data(start_time)
@@ -91,9 +96,5 @@ class UEX(object):
                 track_callback(data)
 
             start_time = start_time + datetime.timedelta(seconds=interval)
-            time.sleep(interval)
 
-
-
-
-
+            time.sleep(sleep_time)

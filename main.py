@@ -4,14 +4,15 @@ import datetime
 
 def main():
 
-    uex = UEX('Vesta-Position-Data-MPC_v5.xls', ['Sheet1'])
+    uex = UEX('random_data.xls',
+              ['Sheet1', 'Sheet2', 'Sheet3', 'Sheet4', 'Sheet5', 'Sheet6'])
 
-    user_input = datetime.datetime(2015, 10, 5, 4, 10, 0)
-
+    user_input = datetime.datetime(2015, 10, 1, 5, 0, 0)
     # number of photos times exposure time in seconds
-    duration = 4 * 3 * 60
+    duration = 4 * 3
+    # duration = (datetime.datetime(2015, 10, 5, 5, 20, 0) - user_input).total_seconds()
 
-    uex.track_object(user_input, 1, duration, send2Arduino)
+    uex.track_object(user_input, 1, duration, send2Arduino, 1)
 
 
 def send2Arduino(data):
